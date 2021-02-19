@@ -51,6 +51,9 @@ namespace ImageAPI.Services
 				return request;
 			}
 
+			if (Token == null)
+				await Refresh();
+
 			var result = await client.ExecuteAsync(Make());
 
 			if (result.StatusCode == System.Net.HttpStatusCode.Unauthorized)
