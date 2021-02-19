@@ -8,12 +8,12 @@ using ImageAPI.Interfaces;
 
 namespace ImageAPI.Services
 {
-    public class CachingServiceLoaderBackgroundService : IHostedService
+    public class CachingServiceLoader : IHostedService
     {
         IImageCachingService _cachingService;
         int _minutes;
 
-        public CachingServiceLoaderBackgroundService(int minutes, IImageCachingService cachingService)
+        public CachingServiceLoader(int minutes, IImageCachingService cachingService)
         {
             _minutes = minutes;
             _cachingService = cachingService;

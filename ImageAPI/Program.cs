@@ -24,7 +24,7 @@ namespace ImageAPI
                 .ConfigureServices((hostContext,services) =>
                 {
                     var settings = hostContext.Configuration.GetSection("Settings").Get<Settings>();
-                    services.AddHostedService(sp => new CachingServiceLoaderBackgroundService(settings.backgroundServiceInterval, sp.GetService<IImageCachingService>()));
+                    services.AddHostedService(sp => new CachingServiceLoader(settings.backgroundServiceInterval, sp.GetService<IImageCachingService>()));
                 });
     }
 }
